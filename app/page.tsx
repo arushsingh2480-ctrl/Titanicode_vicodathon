@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Flame, ArrowRight, CheckCircle, Home, ListChecks, User, Flag } from "lucide-react";
+import { Flame, ArrowRight, CheckCircle } from "lucide-react";
+import BottomNav from "@/components/BottomNav";
+import { useStreak } from "@/components/StreakProvider";
 
 // Custom Icons for GitHub and LinkedIn
 const GithubIcon = (props: any) => (
@@ -17,6 +19,10 @@ const LinkedinIcon = (props: any) => (
 );
 
 export default function LandingPage() {
+  const { currentStreak, longestStreak, completedDays } = useStreak();
+  const totalDays = 60;
+  const progressPercent = (completedDays / totalDays) * 100;
+
   return (
     <main className="flex min-h-screen flex-col items-center p-5 max-w-md mx-auto relative bg-slate-950 pb-24 overflow-hidden">
       
@@ -24,7 +30,7 @@ export default function LandingPage() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-orange-600/10 blur-3xl rounded-full pointer-events-none"></div>
 
       {/* Header Section */}
-      <div className="relative mt-8 text-center w-full z-10">
+      <div className="relative mt-16 text-center w-full z-10">
         <p className="text-orange-500 font-bold tracking-[0.2em] text-xs mb-3">BUILD · SHARE · GROW</p>
         <h1 className="text-3xl font-extrabold text-white leading-tight mb-6 px-4">
           60 Days. Build Your Developer Story.
@@ -48,11 +54,11 @@ export default function LandingPage() {
       {/* Progress Section */}
       <div className="w-full z-10 mb-8 px-2">
         <div className="flex justify-between text-xs text-slate-400 mb-2 font-medium">
-          <span>Day 12 / 60</span>
-          <span>20% Complete</span>
+          <span>Day {completedDays} / {totalDays}</span>
+          <span>{Math.round(progressPercent)}% Complete</span>
         </div>
         <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full" style={{ width: '20%' }}></div>
+          <div className="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full" style={{ width: `${progressPercent}%` }}></div>
         </div>
       </div>
 
@@ -83,12 +89,12 @@ export default function LandingPage() {
             <Flame size={24} />
           </div>
           <div>
-            <p className="text-white font-bold text-xl">11 Days</p>
+            <p className="text-white font-bold text-xl">{currentStreak} Days</p>
             <p className="text-slate-500 text-xs">Current Streak</p>
           </div>
         </div>
         <div className="text-right border-l border-slate-800 pl-4">
-          <p className="text-slate-300 text-sm font-semibold">Longest: 11 Days</p>
+          <p className="text-slate-300 text-sm font-semibold">Longest: {longestStreak} Days</p>
         </div>
       </div>
 
@@ -98,24 +104,7 @@ export default function LandingPage() {
       </p>
 
       {/* Bottom Navigation Bar */}
-      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto p-4 bg-slate-950/90 backdrop-blur-lg border-t border-slate-800 flex justify-around items-center z-20">
-        <button className="flex flex-col items-center text-orange-500">
-          <Home size={22} />
-          <span className="text-[10px] mt-1 font-medium">Home</span>
-        </button>
-        <button className="flex flex-col items-center text-slate-500">
-          <ListChecks size={22} />
-          <span className="text-[10px] mt-1 font-medium">Tasks</span>
-        </button>
-        <button className="flex flex-col items-center text-slate-500">
-          <Flame size={22} />
-          <span className="text-[10px] mt-1 font-medium">Streak</span>
-        </button>
-        <button className="flex flex-col items-center text-slate-500">
-          <User size={22} />
-          <span className="text-[10px] mt-1 font-medium">Profile</span>
-        </button>
-      </div>
+      <BottomNav />
 
     </main>
   );

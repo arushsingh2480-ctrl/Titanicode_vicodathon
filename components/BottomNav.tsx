@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation";
 import { Home, ListChecks, Flame, User } from "lucide-react";
 
 const navItems = [
-  { href: "/dashboard", label: "Home", icon: Home },
-  { href: "/dashboard", label: "Tasks", icon: ListChecks }, // tasks bhi dashboard pe hi list hoti hai
+  { href: "/", label: "Home", icon: Home },
+  { href: "/tasks", label: "Tasks", icon: ListChecks },
   { href: "/streak", label: "Streak", icon: Flame },
   { href: "/profile", label: "Profile", icon: User },
 ];

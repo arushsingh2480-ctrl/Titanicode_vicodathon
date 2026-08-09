@@ -1,6 +1,7 @@
 "use client";
 import { studentData } from "../data";
 import BottomNav from "@/components/BottomNav";
+import { useStreak } from "@/components/StreakProvider";
 
 // Custom Icons for GitHub and LinkedIn
 const GithubIcon = (props: any) => (
@@ -16,6 +17,8 @@ const LinkedinIcon = (props: any) => (
 );
 
 export default function ProfilePage() {
+  const { completedDays } = useStreak();
+
   return (
     <main className="min-h-screen max-w-md mx-auto p-6 pb-24 bg-slate-950 text-white">
       <div className="flex flex-col items-center text-center mb-8 mt-8">
@@ -37,7 +40,7 @@ export default function ProfilePage() {
 
       <div className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-center">
         <p className="text-slate-500 text-sm">Total days completed</p>
-        <p className="text-2xl font-bold">{studentData.totalDaysCompleted} / {studentData.totalChallenges}</p>
+        <p className="text-2xl font-bold">{completedDays} / {studentData.totalChallenges}</p>
       </div>
 
       <BottomNav />

@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { studentData, challengeData } from "../data";
 import { Flame, Trophy, CheckCircle, AlertCircle, ArrowRight, Home, ListChecks, User } from "lucide-react";
+import { useStreak } from "@/components/StreakProvider";
 
 export default function DashboardPage() {
-  const todayTask = challengeData.find(d => d.id === 12) || challengeData[0];
+  const { currentStreak, longestStreak, completedDays } = useStreak();
+  const todayTask = challengeData.find(d => d.id === completedDays) || challengeData[0];
   const missedDay = studentData.missedDays[0]; 
-  const progress = (studentData.totalDaysCompleted / studentData.totalChallenges) * 100;
+  const progress = (completedDays / studentData.totalChallenges) * 100;
 
   return (
     <main className="flex min-h-screen flex-col items-center p-5 max-w-md mx-auto relative bg-slate-950 pb-24 overflow-hidden">
@@ -39,7 +41,7 @@ export default function DashboardPage() {
       <div className="relative z-10 w-full mb-6">
         <div className="flex justify-between text-xs text-slate-400 mb-2 font-medium">
           <span>Overall Progress</span>
-          <span>{studentData.totalDaysCompleted}/{studentData.totalChallenges} Days</span>
+          <span>{completedDays}/{studentData.totalChallenges} Days</span>
         </div>
         <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
           <div className="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full" style={{ width: `${progress}%` }}></div>
@@ -50,12 +52,12 @@ export default function DashboardPage() {
       <div className="relative z-10 grid grid-cols-2 gap-4 w-full mb-6">
         <div className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex flex-col items-center justify-center backdrop-blur-sm">
           <Flame className="text-orange-500 mb-2" size={28} />
-          <p className="text-3xl font-bold text-white">{studentData.currentStreak}</p>
+          <p className="text-3xl font-bold text-white">{currentStreak}</p>
           <p className="text-slate-500 text-xs">Current Streak</p>
         </div>
         <div className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex flex-col items-center justify-center backdrop-blur-sm">
           <Trophy className="text-yellow-500 mb-2" size={28} />
-          <p className="text-3xl font-bold text-white">{studentData.longestStreak}</p>
+          <p className="text-3xl font-bold text-white">{longestStreak}</p>
           <p className="text-slate-500 text-xs">Longest Streak</p>
         </div>
       </div>

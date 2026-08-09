@@ -4,6 +4,8 @@ import { useState, use } from "react";
 import Link from "next/link";
 import { getDayById, studentData } from "../../data";
 import { ArrowLeft, Copy, Check, Moon, Home, ListChecks, User, Flame } from "lucide-react";
+import { useStreak } from "@/components/StreakProvider";
+import BottomNav from "@/components/BottomNav";
 
 // Custom Icons for GitHub and LinkedIn
 const GithubIcon = (props: any) => (
@@ -24,7 +26,7 @@ export default function ChallengeDayPage({ params }: { params: Promise<{ id: str
   
   const [githubLink, setGithubLink] = useState("");
   const [linkedinLink, setLinkedinLink] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const { hasSubmittedToday, incrementStreak } = useStreak();
   
   const [copiedGit, setCopiedGit] = useState(false);
   const [copiedLi, setCopiedLi] = useState(false);
@@ -47,7 +49,7 @@ export default function ChallengeDayPage({ params }: { params: Promise<{ id: str
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (githubLink && linkedinLink) {
-      setSubmitted(true);
+      incrementStreak();
     }
   };
 
@@ -75,7 +77,7 @@ export default function ChallengeDayPage({ params }: { params: Promise<{ id: str
       </div>
 
       {/* Submission Form */}
-      {submitted ? (
+      {hasSubmittedToday ? (
         <div className="relative z-10 w-full bg-green-950/40 border border-green-800/50 rounded-2xl p-8 text-center backdrop-blur-sm mt-4">
           <Check className="text-green-400 mx-auto mb-4" size={48} />
           <h2 className="text-xl font-bold text-green-300 mb-2">Proof Submitted!</h2>
@@ -146,24 +148,7 @@ export default function ChallengeDayPage({ params }: { params: Promise<{ id: str
       )}
 
       {/* Bottom Navigation Bar */}
-      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto p-4 bg-slate-950/90 backdrop-blur-lg border-t border-slate-800 flex justify-around items-center z-20">
-        <Link href="/" className="flex flex-col items-center text-slate-500 hover:text-orange-500 transition-colors">
-          <Home size={22} />
-          <span className="text-[10px] mt-1 font-medium">Home</span>
-        </Link>
-        <Link href="/dashboard" className="flex flex-col items-center text-orange-500">
-          <ListChecks size={22} />
-          <span className="text-[10px] mt-1 font-medium">Tasks</span>
-        </Link>
-        <button className="flex flex-col items-center text-slate-500">
-          <Flame size={22} />
-          <span className="text-[10px] mt-1 font-medium">Streak</span>
-        </button>
-        <button className="flex flex-col items-center text-slate-500">
-          <User size={22} />
-          <span className="text-[10px] mt-1 font-medium">Profile</span>
-        </button>
-      </div>
+      <BottomNav />
 
     </main>
   );
