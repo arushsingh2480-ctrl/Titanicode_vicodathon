@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔥 ABTalks — 60 Day Coding Challenge
 
-## Getting Started
+> Build something every day. Maintain your streak. Get noticed by recruiters.
 
-First, run the development server:
+## 📌 Problem Statement
 
+Indian college students often struggle with **consistency** while learning to code — 
+they start strong but lose momentum within days. There's no simple way to prove 
+daily progress publicly, which also means recruiters and peers never see the effort 
+being put in.
+
+**ABTalks** solves this by turning coding practice into a **60-day public streak 
+challenge** — students commit code daily, submit proof of work (GitHub commits + 
+LinkedIn posts), and build visible momentum that recruiters can actually see.
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Icons:** lucide-react
+- **Deployment:** Vercel
+
+## ✨ Features
+
+- 📅 Day-by-day challenge tracker (60 days)
+- 🐙 GitHub commit proof submission
+- 💼 LinkedIn post proof submission with auto-generated templates
+- 🔥 Streak tracking with longest streak & missed days
+- 👤 Student profile page
+
+## 📸 Screenshots
+
+![Landing Page](./screenshots/landing.png)
+![Dashboard](./screenshots/dashboard.png)
+![Day Page](./screenshots/day.png)
+![Streak Page](./screenshots/streak.png)
+
+## 🚀 Live Demo
+[https://titanicodeabtalkvicodathon.vercel.app](https://titanicodeabtalkvicodathon.vercel.app)
+
+## 💻 Run Locally
+
+Clone the repo:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/arushsingh2480-ctrl/Titanicode_vicodathon.git
+cd Titanicode_vicodathon
+git checkout frontend
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Run the dev server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## 👥 Team
 
-To learn more about Next.js, take a look at the following resources:
+- [Your Name] — Frontend Developer
+- [Teammate names if any]
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project was built for [Hackathon Name] 2026.
