@@ -1,0 +1,93 @@
+{
+  "user": {
+    "name": "Aditi Sharma",
+    "handle": "@aditi.codes",
+    "avatar": "",
+    "track": "Full-Stack Web",
+    "college": "IIT (BHU) Varanasi",
+    "githubConnected": true,
+    "linkedinConnected": true,
+    "bio": "",
+    "joinedDay": "2026-06-28"
+  },
+  "challenge": {
+    "totalDays": 60,
+    "currentDay": 12,
+    "startDate": "2026-06-28"
+  },
+  "streak": {
+    "current": 11,
+    "best": 11,
+    "shieldAvailable": 1,
+    "missedYesterday": false,
+    "log": [
+      { "day": 1, "status": "done" },
+      { "day": 2, "status": "done" },
+      { "day": 3, "status": "done" },
+      { "day": 4, "status": "missed" },
+      { "day": 5, "status": "recovered" },
+      { "day": 6, "status": "done" },
+      { "day": 7, "status": "done" },
+      { "day": 8, "status": "done" },
+      { "day": 9, "status": "done" },
+      { "day": 10, "status": "done" },
+      { "day": 11, "status": "done" },
+      { "day": 12, "status": "in-progress" },
+      { "day": 13, "status": "upcoming" },
+      { "day": 14, "status": "upcoming" }
+    ]
+  },
+  "milestones": [
+    { "day": 1, "label": "Start" },
+    { "day": 7, "label": "First Milestone" },
+    { "day": 20, "label": "Keep Building" },
+    { "day": 30, "label": "Halfway There" },
+    { "day": 60, "label": "Developer Unlocked" }
+  ],
+  "badges": [
+    { "id": "b1", "name": "7-Day Spark", "earned": true, "icon": "flame" },
+    { "id": "b2", "name": "First Deploy", "earned": true, "icon": "rocket" },
+    { "id": "b3", "name": "Comeback Kid", "earned": true, "icon": "shield" },
+    { "id": "b4", "name": "20-Day Builder", "earned": false, "icon": "code" },
+    { "id": "b5", "name": "Halfway Hero", "earned": false, "icon": "trophy" },
+    { "id": "b6", "name": "Developer Unlocked", "earned": false, "icon": "star" }
+  ],
+  "leaderboard": {
+    "rank": 142,
+    "totalStudents": 2547,
+    "percentile": 94
+  },
+  "days": {
+    "12": {
+      "day": 12,
+      "title": "Responsive Pricing Card",
+      "track": "Full-Stack Web",
+      "estMinutes": 50,
+      "difficulty": "Beginner",
+      "brief": "Build a pricing card component that adapts cleanly from a 320px phone screen up to a 1280px desktop layout, using a mobile-first approach.",
+      "objectives": [
+        "Build 3 pricing tiers (Starter, Pro, Team) in a single component",
+        "Stack cards vertically on mobile, switch to a 3-column row above 768px",
+        "Highlight the recommended plan with an accent border or badge",
+        "Use relative units (rem/%) instead of fixed pixel widths",
+        "Add a hover or tap state on the CTA button"
+      ],
+      "resources": [
+        { "label": "CSS Grid vs Flexbox for cards", "url": "#" },
+        { "label": "Mobile-first breakpoints cheatsheet", "url": "#" },
+        { "label": "Reference: Stripe pricing page", "url": "#" }
+      ],
+      "recoveryTask": {
+        "title": "15-min Catch-up: Fix a broken layout",
+        "minutes": 15,
+        "description": "A lighter version of today's task to protect your streak without the full build."
+      }
+    }
+  },
+  "submission": {
+    "12": {
+      "github": { "status": "verified", "url": "github.com/aditisharma/pricing-card" },
+      "linkedin": { "status": "verified", "url": "linkedin.com/posts/aditisharma-day12" }
+    }
+  }
+}
